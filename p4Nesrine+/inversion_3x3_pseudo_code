@@ -1,0 +1,50 @@
+! Pseudocodi simple que permet calcular la inversa
+! d'una matriu A 3x3; se suposa que el determinant no es zero.
+
+
+          dimension A(3,3), B(3,3)    ! matriu original A
+                                      ! i la inversa B
+
+! Aqui es calcularien els valors numèrics de
+! la matriu A (3 x 3) = J *  Jt (trasposta)
+         .
+         .
+         .
+
+
+
+! Procedirem ara a calcular la matriu B (inversa de A
+! i igualment de 3 x 3)  amb el següent pseudo-codi:
+
+! Calcul del determinant de A:
+         
+          det = A(1,1) * A(2,2) * A(3,3) +
+     +          A(1,2) * A(2,3) * A(3,1) +
+     +          A(1,3) * A(2,1) * A(3,2) -
+     -          A(1,3) * A(2,2) * A(3,1) -
+     -          A(1,1) * A(2,3) * A(3,2) -
+     -          A(1,2) * A(2,1) * A(3,3)
+
+
+! Calcul de la matriu inversa:
+
+          B(1,1) = A(2,2) * A(3,3) - A(2,3) * A(3,2)
+          B(1,2) = A(2,3) * A(3,1) - A(2,1) * A(3,3)
+          B(1,3) = A(2,1) * A(3,2) - A(2,2) * A(3,1)
+
+          B(2,1) = A(3,2) * A(1,3) - A(3,3) * A(1,2)
+          B(2,2) = A(3,3) * A(1,1) - A(3,1) * A(1,3)
+          B(2,3) = A(3,1) * A(1,2) - A(3,2) * A(1,1)
+
+          B(3,1) = A(1,2) * A(2,3) - A(1,3) * A(2,2)
+          B(3,2) = A(1,3) * A(2,1) - A(1,1) * A(2,3)
+          B(3,3) = A(1,1) * A(2,2) - A(1,2) * A(2,1)
+
+          do i1 = 1, 3
+           do i2 = 1, 3
+            B(i1,i2) = B(i1,i2) / det
+           end do
+          end do
+          
+! i ja la tenim calculada.
+          
